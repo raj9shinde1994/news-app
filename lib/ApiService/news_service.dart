@@ -1,5 +1,7 @@
 // 1
 import 'package:chopper/chopper.dart';
+import 'package:news_api_app/ApiService/header_interceptor.dart';
+import 'package:news_api_app/ApiService/model_converter.dart';
 import 'package:news_api_app/Models/news.dart';
 
 part 'news_service.chopper.dart';
@@ -19,6 +21,10 @@ abstract class NewsService extends ChopperService {
     final client = ChopperClient(
       // 10
       baseUrl: 'https://newsapi.org/v2',
+      converter: ModelConverter(),
+      errorConverter: JsonConverter(),
+
+      interceptors: [HeaderInterceptor(),HttpLoggingInterceptor()],
       // 11
       services: [
         _$NewsService(),
