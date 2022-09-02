@@ -7,16 +7,16 @@ part 'news_event.dart';
 part 'news_state.dart';
 
 class NewsBloc extends Bloc<NewsEvent,NewsState> {
-  NewsBloc() : super(const InitialState()) {
-    //_mapEventToState();
+  NewsBloc() : super(const InitialState());
 
-/*
-    on<GetGamesByCategory>(_mapGetGamesByCategoryEventToState);
-*/
+
+  @override
+  Stream<NewsState> mapEventToState(
+      NewsEvent event) async* {
+   /* if (event is RotateEvent) {
+      yield RotatedState(angle: event.angle);
+    }*/
   }
-
-
-
 
 //final GameRepository gameRepository;
 /*
